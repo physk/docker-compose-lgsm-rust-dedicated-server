@@ -67,7 +67,7 @@ function apply-generated-map-settings() {
   if [ -z "$worldsize" ] || ! check-range "$worldsize" 1000 6000; then
     worldsize=3000
   fi
-  # apply user-customized settings from rust-environment.sh
+  # apply user-customized settings from .env
   apply-setting "$lgsm_cfg" worldsize "worldsize=$worldsize"
   if [ -n "$seed" ]; then
     apply-setting "$lgsm_cfg" seed "seed=$seed"
