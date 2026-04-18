@@ -6,7 +6,6 @@ if ! type -p python && type -p python3; then
   python() { python3 "$@"; }
 fi
 
-[ ! -r /rust-environment.sh ] || source /rust-environment.sh
 export ENABLE_RUST_EAC CUSTOM_MAP_URL MAP_BASE_URL SELF_HOST_CUSTOM_MAP
 export seed salt worldsize maxplayers servername apply_settings_debug_mode
 if [ "${apply_settings_debug_mode:-false}" = true ]; then
@@ -14,7 +13,7 @@ if [ "${apply_settings_debug_mode:-false}" = true ]; then
   set -x
 fi
 
-echo 'Applying server settings from rust-environment.sh:'
+echo 'Applying server settings:'
 
 server_cfg=serverfiles/server/rustserver/cfg/server.cfg
 lgsm_cfg=lgsm/config-lgsm/rustserver/rustserver.cfg
