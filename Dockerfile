@@ -1,5 +1,8 @@
 FROM gameservermanagers/linuxgsm-docker
 
+# Base image sets USER linuxgsm; switch to root for build-time setup
+USER root
+
 # Install system dependencies at build time (not on every container start)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
