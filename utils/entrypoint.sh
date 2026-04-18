@@ -18,4 +18,4 @@ mkdir -p /home/steam /custom-maps
 chown -R steam:steam /home/steam /custom-maps
 
 bash /utils/gen-cfg.sh
-exec su - steam -c "/utils/custom-rust-server.sh"
+exec su - steam -c "bash /utils/custom-rust-server.sh"
