@@ -16,7 +16,7 @@ services:
     # docker-compose auto restarts the rust server.
     restart: always
     volumes:
-      - lgsm:/home/linuxgsm
+      - ./lgsm:/home/linuxgsm
       - ./mod-configs/:/home/linuxgsm/serverfiles/oxide/config/:rw
       - ./custom-mods/:/custom-plugins/:ro
       - ./custom-maps/:/custom-maps/:rw

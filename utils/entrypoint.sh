@@ -28,7 +28,7 @@ fi
 [ "$(stat -c '%u' /home/linuxgsm)" != "$PUID" ] && chown -R linuxgsm: /home/linuxgsm
 [ "$(stat -c '%u' /custom-maps)" != "$PUID" ] && chown -R linuxgsm: /custom-maps
 for dir in /home/linuxgsm/serverfiles /home/linuxgsm/serverfiles/oxide; do
-    [ -d "$dir" ] && chown linuxgsm: "$dir"
+    [ -d "$dir" ] && chown -v linuxgsm: "$dir"
 done
 [ -d /home/linuxgsm/serverfiles/oxide/config ] && \
     chown -R linuxgsm: /home/linuxgsm/serverfiles/oxide/config
