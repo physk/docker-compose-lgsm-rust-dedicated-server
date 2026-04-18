@@ -1,6 +1,7 @@
 #!/bin/bash
 
 LOGFILE=/home/linuxgsm/log/autoheal.log
+[ -r /run/lgsm-env.sh ] && source /run/lgsm-env.sh
 
 function wait-for-rust() {
   until pgrep "$@"; do

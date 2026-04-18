@@ -35,9 +35,8 @@ done
 
 rm -f ~linuxgsm/linuxgsm.sh
 
-# su - creates a clean login shell that drops environment variables.
-# Write server config vars to /etc/profile.d so they are sourced
-# automatically by the login shell and all child processes.
+# su - drops environment variables. Write server config vars to a file
+# that apply-settings.sh and monitor-rust-server.sh explicitly source.
 {
   for var in maxplayers servername seed salt worldsize \
               ENABLE_RUST_EAC MAP_BASE_URL CUSTOM_MAP_URL \
@@ -47,6 +46,6 @@ rm -f ~linuxgsm/linuxgsm.sh
       printf 'export %s=%q\n' "$var" "${!var}"
     fi
   done
-} > /etc/profile.d/lgsm-runtime-env.sh
+} > /run/lgsm-env.sh
 
 exec su - linuxgsm -c "/utils/custom-rust-server.sh"

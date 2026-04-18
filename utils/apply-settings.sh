@@ -6,6 +6,9 @@ if ! type -p python && type -p python3; then
   python() { python3 "$@"; }
 fi
 
+# Source env vars written by entrypoint.sh (survives su - env drop)
+[ -r /run/lgsm-env.sh ] && source /run/lgsm-env.sh
+
 export ENABLE_RUST_EAC CUSTOM_MAP_URL MAP_BASE_URL SELF_HOST_CUSTOM_MAP
 export seed salt worldsize maxplayers servername apply_settings_debug_mode
 if [ "${apply_settings_debug_mode:-false}" = true ]; then
